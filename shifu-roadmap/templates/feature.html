@@ -1,0 +1,39 @@
+
+<div ng-if="feature.type=='Feature'">        
+    <div class="feature feature-{{feature.status | lowercase}}" ng-show="statusLkp[feature.status].show">
+        <div class="row">
+            <div class="col-md-10">
+            <div class="feature-name"><span class="feature-prompt">Feature: </span> {{feature.name}}</div>
+            </div>
+            <div class="col-md-2">
+            <div class="status-label label pull-right label-{{feature.status | lowercase}}">{{feature.status}}</div>
+            </div>
+        </div>
+        <div class="row feature-path">
+            <span class="feature-prompt">FeaturePath: </span>{{feature.path}}
+        </div>
+        <div class="feature-description"><span class="feature-prompt">Description: </span>{{feature.description}}</div>
+    </div>
+</div>
+<div ng-if="feature.type=='FeatureGroup'">
+    <div class="feature-group" ng-if="view=='tree'">
+        <div class="row">
+            <div class="feature-group-name">
+                <span class="expand-btn btn btn-default glyphicon" ng-class="{'glyphicon-plus' : !feature.expand, 'glyphicon-minus': feature.expand}" ng-click="feature.expand = !feature.expand"></span>
+                <button class="expand-all-btn btn btn-default" ng-click="expandAll(feature)">Expand All</button>
+                <span class="feature-prompt">FeatureGroup: </span>{{feature.name}}
+            </div>
+        </div>
+        <div class="row feature-path">
+            <span class="feature-prompt">FeaturePath: </span>{{feature.path}}
+        </div>
+        <ul ng-show="feature.expand">
+            <li ng-repeat="feature in feature.features | filter:$scope.statusLkp[feature.status].show | filter:query | filter:emptyGroupFilter" ng-include="'templates/feature.html'">   
+        </ul>      
+    </div>
+
+    <div ng-if="view=='list'">
+        <li ng-repeat="feature in feature.features | filter:$scope.statusLkp[feature.status].show | filter:query | filter:emptyGroupFilter" ng-include="'templates/feature.html'"> 
+    </div>
+</div>
+

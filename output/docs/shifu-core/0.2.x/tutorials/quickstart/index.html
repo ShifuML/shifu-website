@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="description" content="Shifu" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quick Start</title>
+  <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript">
+</script>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" type="text/css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js" type="text/javascript">
+</script>
+  <script src="/javascripts/main.js" type="text/javascript">
+</script>
+  <link rel="stylesheet" href="/coderay.css" type="text/css">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <link rel="icon" href="/images/owl_head_32.png">
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+  <body>
+	
+	<header id="header" role="banner">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a href="http://paypal.github.io" class="navbar-brand"><img src="/images/OSSLogoPP.png" alt="PayPal open source" /></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="/" id="shifu-logo"><img src="/images/shifu-logo.png" height="44" ></a>
+
+
+
+					<!--<li><a href="/project/about">About</a></li>-->
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="/project/about">About</a></li>
+              <li><a href="/project/how-to-contribute">How to Contribute</a></li>
+              
+            </ul>
+          </li>
+
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Getting Started<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/project/download">Download</a></li>
+							<li><a href="/docs/shifu-core/0.2.x/tutorials/quickstart">Quick Start</a></li>
+
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/docs/shifu-core/0.2.x">Shifu-Core</a></li>
+							<li><a href="/docs/guagua">Guagua</a></li>
+						</ul>
+					</li>
+					
+				</ul>
+			</div>
+		</nav>
+	</header>
+ 
+  
+
+  <div class="container" id="content">
+    <div class="row">
+      <div class="col-md-9">
+        <div id="main">
+          
+<h1 id="quick-start">Quick Start</h1>
+
+<blockquote>
+  <p>This is a quick start for the impatient! Hadoop isn’t required for this quick start, Shifu will run locally on your machine. All data and settings are included with the Shifu <a href="/project/download">download</a>. To train a model on Hadoop, check out the full-length <a href="../wdbc">Wisconsin Diagnostic Breast Cancer</a> tutorial.</p>
+</blockquote>
+
+<h2 id="preparation">Preparation</h2>
+
+<p><a href="/project/download/#download">Download</a> and <a href="/project/download/#install">install</a> Shifu onto your machine.</p>
+
+<h2 id="tutorial">Tutorial</h2>
+
+<p>First, navigate to the quick start tutorial:</p>
+
+<pre><code>$ cd $SHIFU_HOME/example/wdbc/wdbcModelSetLocal
+</code></pre>
+
+<h3 id="initialize-shifu">Initialize Shifu</h3>
+
+<p>Initialize Shifu using the pre-cooked model configuration in <code>ModelConfig.json</code>.  </p>
+
+<pre><code>$ shifu init
+</code></pre>
+
+<p>Initialization verifies that Shifu can find the model training set in <code>$SHIFU_HOME/example/wdbc/wdbcDataSet/</code></p>
+
+<pre><code>$SHIFU_HOME/
+└───example/
+    └───wdbc/
+         └───wdbcDataSet/
+             ├───wdbc.data
+             ├───wdbc.train
+             ├───wdbc.eval
+             └───wdbc.header               
+</code></pre>
+
+<p>Notice that <code>ColumnConfig.json</code> is created.  Open <code>ColumnConfig.json</code>, and you’ll see that <code>columnNum</code>, <code>columnName</code>, <code>columnType</code>, <code>columnFlag</code> reflect the training set.</p>
+
+<h3 id="calculate-stats-and-distributions">Calculate stats and distributions</h3>
+
+<p>Calculate statistics on the variables in the data set, so Shifu can determine the most predictive variables.  </p>
+
+<pre><code>$ shifu stats
+</code></pre>
+
+<p>Open <code>ColumnConfig.json</code>, and the variables with <code>columnType</code> set to <code>N</code>(numerical) or <code>C</code>(categorical) should be populated with <code>columnStats</code> and <code>columnBinning</code>.</p>
+
+<h3 id="variable-selection">Variable Selection</h3>
+
+<p>Select the variables to be used to train the model. In this case, Shifu auto-selects the 30 most predictive variables.  </p>
+
+<pre><code>$ shifu varselect
+</code></pre>
+
+<p>Open <code>ColumnConfig.json</code>, and notice that the selected columns to be used in the model will be marked as <code>finalSelect: true</code></p>
+
+<h3 id="normalization">Normalization</h3>
+
+<p>Normalize the selected variables. Shifu stores the normalized data set in <code>tmp/NormalizedData</code>.</p>
+
+<pre><code>$ shifu normalize
+</code></pre>
+
+<h3 id="training">Training</h3>
+
+<p>You are now ready to train a model, let’s get started.</p>
+
+<pre><code>$ shifu train
+</code></pre>
+
+<p>Congratulations - you’ve just trained your first model using Shifu!  </p>
+
+<p>After the training is complete, you can find your trained models in the <code>models</code> folder</p>
+
+<h3 id="evaluation">Evaluation</h3>
+
+<p>After you’ve trained your model, evaluate your model’s performance on an evaluation data set.</p>
+
+<pre><code>$ shifu eval 
+</code></pre>
+
+<p>Shifu will calculate score, confusion matrix and performance curves against the evaluation dataset.</p>
+
+<h2 id="next-steps">Next steps</h2>
+
+<p>Now that you’ve trained your first model using Shifu, you are ready to train a model </p>
+
+<ul>
+  <li>on a <a href="/docs/shifu-core/0.2.x/tutorials/wdbc/">Hadoop cluster</a> </li>
+  <li>using different <a href="/docs/shifu-core/0.2.x/guide/varselect/">variable selection</a> methods</li>
+  <li>using <a href="/docs/shifu-core/0.2.x/guide/init/#initialize-dataset">your own data on HDFS</a>
+</li>
+  <li>with <a href="/docs/shifu-core/0.2.x/guide/train/#options">multiple training bags</a>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div id="side">
+          <h1>Quick Start</h1><ul class="toc"><li><a href="#preparation">Preparation</a></li><li><a href="#tutorial">Tutorial</a></li><li><a href="#next-steps">Next steps</a></li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    </main>
+
+  <div id="footer">
+    <div class="container">
+      <div class="row">
+        <div id="footer-content">
+          Lovingly crafted at <a href="https://www.paypal.com" alt="PayPal">PayPal</a>, code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0.html" alt="Apache License.">Apache License v2.0</a><br>
+        </div>
+      </div>
+    </div>
+  </div><!--footer-->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47925727-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

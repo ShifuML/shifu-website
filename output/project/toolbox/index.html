@@ -1,0 +1,340 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="description" content="Shifu" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ToolBox</title>
+  <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript">
+</script>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" type="text/css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js" type="text/javascript">
+</script>
+  <script src="/javascripts/main.js" type="text/javascript">
+</script>
+  <link rel="stylesheet" href="/coderay.css" type="text/css">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <link rel="icon" href="/images/owl_head_32.png">
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+  <body>
+	
+	<header id="header" role="banner">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a href="http://paypal.github.io" class="navbar-brand"><img src="/images/OSSLogoPP.png" alt="PayPal open source" /></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="/" id="shifu-logo"><img src="/images/shifu-logo.png" height="44" ></a>
+
+
+
+					<!--<li><a href="/project/about">About</a></li>-->
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="/project/about">About</a></li>
+              <li><a href="/project/how-to-contribute">How to Contribute</a></li>
+              
+            </ul>
+          </li>
+
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Getting Started<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/project/download">Download</a></li>
+							<li><a href="/docs/shifu-core/0.2.x/tutorials/quickstart">Quick Start</a></li>
+
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/docs/shifu-core/0.2.x">Shifu-Core</a></li>
+							<li><a href="/docs/guagua">Guagua</a></li>
+						</ul>
+					</li>
+					
+				</ul>
+			</div>
+		</nav>
+	</header>
+ 
+  
+
+  <div class="container" id="content">
+    <div class="row">
+      <div class="col-md-9">
+        <div id="main">
+          
+<h1 id="toolbox">Toolbox</h1>
+
+<p>We spent a lot of time shopping for the best tools to ease the pains in development and release management. Here is the toolbox we are currently comfortable with. This list may be updated over time as we gain more experiences and insights.</p>
+
+<ul>
+  <li>Code Quality and Release Management
+    <ul>
+      <li>
+<strong>Maven</strong>: Dependency / Build</li>
+      <li>
+<strong>TestNG</strong>: Unit Test</li>
+      <li>
+<strong>JaCoCo</strong>: Java Code Coverage</li>
+      <li>
+<strong>Sonar</strong>: Code Quality</li>
+      <li>
+<strong>Git/GitHub</strong>: Version Control</li>
+      <li>
+<strong>Travis-ci</strong>: Continuous Integration</li>
+    </ul>
+  </li>
+  <li>Website <br>
+    <ul>
+      <li>
+<strong>Nanoc</strong>: MarkDown to HTML compiler</li>
+      <li>
+<strong>Guard</strong>: File Monitoring</li>
+      <li>
+<strong>CodeRay</strong>: Code Highlighting</li>
+      <li>
+<strong>MathJax</strong>: Math Formula Rendering</li>
+      <li>
+<strong>Integrity</strong>: Detect Broken Links</li>
+      <li>
+<strong>Google Analytics</strong>: Traffic Monitoring</li>
+      <li>
+<strong>Google Webmaster</strong>: Webmaster</li>
+    </ul>
+  </li>
+  <li>GUI
+    <ul>
+      <li>
+<strong>Node.js / Express.js</strong>: Server and server side MVC framework</li>
+      <li>
+<strong>Angular.js</strong>: Client side MVC framework</li>
+      <li>
+<strong>Sock.io</strong>: Server-Client Communication</li>
+      <li>
+<strong>D3.js</strong>: Data Visualization</li>
+      <li>
+<strong>BootStrap</strong>: CSS Framework</li>
+    </ul>
+  </li>
+  <li>Deployment
+    <ul>
+      <li>
+<strong>Apache Ambari</strong>: Hadoop Cluster Management</li>
+      <li>
+<strong>OpenStack</strong>: Could</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="code-quality-and-release-management">Code Quality and Release Management</h2>
+
+<h3 id="maven-dependency--build">
+<strong>Maven</strong>: Dependency / Build</h3>
+
+<p>Gradel might be supported in the future</p>
+
+<h3 id="testng-unit-test">
+<strong>TestNG</strong>: Unit Test</h3>
+
+<p>We chose <code>TestNG</code> over <code>JUnit</code> for no specific reasons…</p>
+
+<p><a href="http://testng.org/doc/index.html">Learn More</a></p>
+
+<h3 id="jacoco-java-code-coverage">
+<strong>JaCoCo</strong>: Java Code Coverage</h3>
+
+<p>To use <code>jacoco</code>, add the <code>jacoco-maven-plugin</code> to the <code>pom</code></p>
+
+<div class="CodeRay"><div class="code"><pre><code class="language-xml"><span class="tag">&lt;plugin&gt;</span>
+    <span class="tag">&lt;groupId&gt;</span>org.jacoco<span class="tag">&lt;/groupId&gt;</span>
+    <span class="tag">&lt;artifactId&gt;</span>jacoco-maven-plugin<span class="tag">&lt;/artifactId&gt;</span>
+    <span class="tag">&lt;version&gt;</span>0.7.1.201405082137<span class="tag">&lt;/version&gt;</span>
+    <span class="tag">&lt;executions&gt;</span>
+        <span class="tag">&lt;execution&gt;</span>
+            <span class="tag">&lt;id&gt;</span>jacoco-prepare-agent<span class="tag">&lt;/id&gt;</span>
+            <span class="tag">&lt;goals&gt;</span>
+                <span class="tag">&lt;goal&gt;</span>prepare-agent<span class="tag">&lt;/goal&gt;</span>
+            <span class="tag">&lt;/goals&gt;</span>
+        <span class="tag">&lt;/execution&gt;</span>
+        <span class="tag">&lt;execution&gt;</span>
+            <span class="tag">&lt;id&gt;</span>jacoco-report<span class="tag">&lt;/id&gt;</span>
+            <span class="tag">&lt;goals&gt;</span>
+                <span class="tag">&lt;goal&gt;</span>report<span class="tag">&lt;/goal&gt;</span>
+            <span class="tag">&lt;/goals&gt;</span>
+        <span class="tag">&lt;/execution&gt;</span>
+    <span class="tag">&lt;/executions&gt;</span>
+<span class="tag">&lt;/plugin&gt;</span></code></pre></div></div>
+
+<p>To build</p>
+
+<pre><code>$ mvn clean package
+</code></pre>
+
+<ul>
+  <li>
+<code>prepare-agent</code>: generate result in <code>target/jacoco.exec</code>
+</li>
+  <li>
+<code>report</code>: create report based on <code>jacoco.exec</code>, into <code>target/site/jacoco</code>
+</li>
+</ul>
+
+<h3 id="sonar-code-quality">
+<strong>Sonar</strong>: Code Quality</h3>
+
+<p>Install <code>SonarQube</code>: http://www.sonarqube.org/</p>
+
+<p>Run through <code>Maven</code>:</p>
+
+<pre><code>$ mvn sonar:sonar
+</code></pre>
+
+<p>To add params:</p>
+
+<pre><code>$ mvn sonar:sonar -Dsonar.host.url=http://x.x.x.x:8080/ -Dsonar.jdbc.url=jdbc:mysql://x.x.x.x:3306/&lt;db_name&gt; -Dsonar.jdbc.username=&lt;user_name&gt; -Dsonar.jdbc.password=&lt;password&gt;
+</code></pre>
+
+<h3 id="gitgithub-version-control">
+<strong>Git/GitHub</strong>: Version Control</h3>
+
+<p>https://github.com/shifuml</p>
+
+<h3 id="travis-ci-continuous-integration">
+<strong>Travis-ci</strong>: Continuous Integration</h3>
+
+<p>Go to Travis-ci <a href="https://travis-ci.org/">website</a>, login by GitHub account.</p>
+
+<h2 id="website">Website</h2>
+
+<h3 id="nanoc-markdown-to-html-compiler">
+<strong>Nanoc</strong>: MarkDown to HTML compiler</h3>
+
+<p>http://nanoc.ws/</p>
+
+<h3 id="guard-file-monitoring">
+<strong>Guard</strong>: File Monitoring</h3>
+
+<p>https://github.com/guard/guard</p>
+
+<h3 id="coderay-code-highlighting">
+<strong>CodeRay</strong>: Code Highlighting</h3>
+
+<p>https://github.com/rubychan/coderay</p>
+
+<h3 id="mathjax-math-formula-rendering">
+<strong>MathJax</strong>: Math Formula Rendering</h3>
+
+<p>http://www.mathjax.org/</p>
+
+<p>Add this to HTML</p>
+
+<div class="CodeRay"><div class="code"><pre><code class="language-html"><span class="tag">&lt;script</span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">"</span><span class="content">text/javascript</span><span class="delimiter">"</span></span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">"</span><span class="content">http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML</span><span class="delimiter">"</span></span><span class="tag">&gt;</span></code></pre></div></div>
+
+<h3 id="integrity-detect-broken-links">
+<strong>Integrity</strong>: Detect Broken Links</h3>
+
+<p>http://peacockmedia.co.uk/integrity/</p>
+
+<h3 id="google-analytics-traffic-monitoring">
+<strong>Google Analytics</strong>: Traffic Monitoring</h3>
+
+<p>http://www.google.com/analytics</p>
+
+<h3 id="google-webmaster-webmaster">
+<strong>Google Webmaster</strong>: Webmaster</h3>
+
+<p>http://www.google.com/webmasters/</p>
+
+<h2 id="gui">GUI</h2>
+
+<h3 id="nodejs--expressjs-server-and-server-side-mvc-framework">
+<strong>Node.js / Express.js</strong>: Server and server side MVC framework</h3>
+
+<p>http://nodejs.org/</p>
+
+<p>http://expressjs.com/</p>
+
+<h3 id="angularjs-client-side-mvc-framework">
+<strong>Angular.js</strong>: Client side MVC framework</h3>
+
+<p>https://angularjs.org/</p>
+
+<h3 id="sockio-server-client-communication">
+<strong>Sock.io</strong>: Server-Client Communication</h3>
+
+<p>http://socket.io/</p>
+
+<h3 id="d3js-data-visualization">
+<strong>D3.js</strong>: Data Visualization</h3>
+
+<p>http://d3js.org/</p>
+
+<h3 id="bootstrap-css-framework">
+<strong>BootStrap</strong>: CSS Framework</h3>
+
+<p>http://getbootstrap.com/</p>
+
+<h2 id="deployment">Deployment</h2>
+
+<h3 id="apache-ambari-hadoop-cluster-management">
+<strong>Apache Ambari</strong>: Hadoop Cluster Management</h3>
+
+<p>http://ambari.apache.org/</p>
+
+<h3 id="openstack-cloud">
+<strong>OpenStack</strong>: Cloud</h3>
+
+<p>http://www.openstack.org/</p>
+
+<p>Amazon AWS might be supported in the future</p>
+
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div id="side">
+          <h1>ToolBox</h1><ul class="toc"><li><a href="#code-quality-and-release-management">Code Quality and Release Management</a></li><li><a href="#website">Website</a></li><li><a href="#gui">GUI</a></li><li><a href="#deployment">Deployment</a></li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    </main>
+
+  <div id="footer">
+    <div class="container">
+      <div class="row">
+        <div id="footer-content">
+          Lovingly crafted at <a href="https://www.paypal.com" alt="PayPal">PayPal</a>, code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0.html" alt="Apache License.">Apache License v2.0</a><br>
+        </div>
+      </div>
+    </div>
+  </div><!--footer-->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47925727-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

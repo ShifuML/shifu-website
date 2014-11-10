@@ -1,0 +1,267 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="description" content="Shifu" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Configuration</title>
+  <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript">
+</script>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" type="text/css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js" type="text/javascript">
+</script>
+  <script src="/javascripts/main.js" type="text/javascript">
+</script>
+  <link rel="stylesheet" href="/coderay.css" type="text/css">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <link rel="icon" href="/images/owl_head_32.png">
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+  <body>
+	
+	<header id="header" role="banner">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a href="http://paypal.github.io" class="navbar-brand"><img src="/images/OSSLogoPP.png" alt="PayPal open source" /></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="/" id="shifu-logo"><img src="/images/shifu-logo.png" height="44" ></a>
+
+
+
+					<!--<li><a href="/project/about">About</a></li>-->
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="/project/about">About</a></li>
+              <li><a href="/project/how-to-contribute">How to Contribute</a></li>
+              
+            </ul>
+          </li>
+
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Getting Started<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/project/download">Download</a></li>
+							<li><a href="/docs/shifu-core/0.2.x/tutorials/quickstart">Quick Start</a></li>
+
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/docs/shifu-core/0.2.x">Shifu-Core</a></li>
+							<li><a href="/docs/guagua">Guagua</a></li>
+						</ul>
+					</li>
+					
+				</ul>
+			</div>
+		</nav>
+	</header>
+ 
+  
+
+  <div class="container" id="content">
+    <div class="row">
+      <div class="col-md-9">
+        <div id="main">
+          
+<p><a href="http://shifu.ml/docs/stable/guide/guagua/"><img src="../images/guagua_duck_50.png" alt="Guagua" align="right"></a></p>
+
+<h3 id="guaguaworkernumber">guagua.worker.number</h3>
+
+<p>How many workers in such job? It is set by Guagua, user can set it, but it just a hint.</p>
+
+<h3 id="guaguaiterationcount">guagua.iteration.count</h3>
+
+<p>How many iterations or maximal iteration number. It is set by using ‘-c’.</p>
+
+<h3 id="guaguaworkercomputableclass">guagua.worker.computable.class</h3>
+
+<p>Worker class, must implement <code>ml.shifu.guagua.worker.WorkerComputable</code> interface. </p>
+
+<h3 id="guaguamastercomputableclass">guagua.master.computable.class</h3>
+
+<p>Master class, must implement <code>ml.shifu.guagua.master.MasterComputable</code> interface.</p>
+
+<h3 id="guaguamasterresultclass">guagua.master.result.class</h3>
+
+<p>Master result class, must implement <code>ml.shifu.guagua.io.Bytable</code> interface or extend <code>ml.shifu.guagua.io.HaltBytable</code> class.</p>
+
+<h3 id="guaguaworkerresultclass">guagua.worker.result.class</h3>
+
+<p>Worker result class, must implement <code>ml.shifu.guagua.io.Bytable</code> interface or extend <code>ml.shifu.guagua.io.HaltBytable</code> class.</p>
+
+<h3 id="guaguamasterintercepters">guagua.master.intercepters</h3>
+
+<p>User defined master interceptors, separated by ‘,’ if you have multiple interceptor. All interceptors must implement <code>ml.shifu.guagua.master.MasterInterceptor</code> interface.</p>
+
+<h3 id="guaguaworkerintercepters">guagua.worker.intercepters</h3>
+
+<p>User defined worker interceptors, separated by ‘,’ if you have multiple interceptor. All interceptors must implement <code>ml.shifu.guagua.worker.WorkererInterceptor</code> interface.</p>
+
+<h3 id="guaguamastersystemintercepters">guagua.master.system.intercepters</h3>
+
+<p>System master interceptors, default is ‘ml.shifu.guagua.master.MasterTimer,ml.shifu.guagua.master.MemoryStatsMasterInterceptor,ml.shifu.guagua.master.SyncMasterCoordinator’</p>
+
+<h3 id="guaguaworkersystemintercepters">guagua.worker.system.intercepters</h3>
+
+<p>System worker interceptors, default is ‘ml.shifu.guagua.worker.WorkerTimer,ml.shifu.guagua.worker.MemoryStatsWorkerInterceptor,ml.shifu.guagua.worker.SyncWorkerCoordinator’.</p>
+
+<h3 id="guaguazkservers">guagua.zk.servers</h3>
+
+<p>zookeeper servers. For example ‘server1:port1,server2:port2’.</p>
+
+<h3 id="guaguazksessiontimeout">guagua.zk.session.timeout</h3>
+
+<p>zookeeper session timeout, default is 5 * 60 * 1000 ms.</p>
+
+<h3 id="guaguazkmaxattempt">guagua.zk.max.attempt</h3>
+
+<p>If zookeeper gets connection loss exception, max attempt number. By default is 5.</p>
+
+<h3 id="guaguazkretrywaitmills">guagua.zk.retry.wait.mills</h3>
+
+<p>If zookeeper gets connection loss exception, waiting time mills before next connection.</p>
+
+<h3 id="guaguainputdir">guagua.input.dir</h3>
+
+<p>Input folder.</p>
+
+<h3 id="guaguazkcleanupenable">guagua.zk.cleanup.enable</h3>
+
+<p>Whether clean znodes resources when job ends, default is true. </p>
+
+<h3 id="guaguamasterioserializer">guagua.master.io.serializer</h3>
+
+<p>Master serializer class to serialize master results, must implement interface <code>ml.shifu.guagua.io.serializer</code> By default is ‘ml.shifu.guagua.io.BytableSerializer’.</p>
+
+<h3 id="guaguaworkerioserializer">guagua.worker.io.serializer</h3>
+
+<p>Worker serializer class to serialize master results, must implement interface <code>ml.shifu.guagua.io.serializer</code> By default is ‘ml.shifu.guagua.io.BytableSerializer’.</p>
+
+<h3 id="guaguaworkerhaltenable">guagua.worker.halt.enable</h3>
+
+<p>Whether support halt if master or worker get some condition like error converged. By default is true.</p>
+
+<h3 id="guaguasplitcombinable--guaguasplitmaxcombinedsplitsize">guagua.split.combinable &amp; guagua.split.maxCombinedSplitSize</h3>
+
+<p>It is like pig, whether to combine splits together to get a number of byte set by ‘guagua.split.maxCombinedSplitSize’.</p>
+
+<h3 id="guaguazkheartbeatenable">guagua.zk.heartbeat.enable</h3>
+
+<p>Whether to enable zookeeper hearbeat, default is false since ZooKeeper client provided by zookeeper has heartbeat.</p>
+
+<h3 id="guaguacomputationtimethreshold">guagua.computation.time.threshold</h3>
+
+<p>If one worker computation time is over this number three times. The task will be killed by itself and fail-over will start another task. This is useful to check slow nodes and make task run on another nodes. By default is 40s.</p>
+
+<h3 id="guaguaminworkersratio--guaguaminworkerstimeout">guagua.min.workers.ratio &amp; guagua.min.workers.timeout</h3>
+
+<p>How many workers done in each iteration. If set it to 50%, half of all workers are done in one iteration and time is over ‘guagua.min.workers.timeout’, master will start another iteration without waiting for other un-ended tasks. By default is 1. </p>
+
+<p>Below is Guagua-YARN related.</p>
+
+<h3 id="guaguayarnmasterpriority">guagua.yarn.master.priority</h3>
+
+<p>Guagua AppMaster container priority.</p>
+
+<h3 id="guaguayarnqueuename">guagua.yarn.queue.name</h3>
+
+<p>queue name set in Guagua-YARN.</p>
+
+<h3 id="guaguayarnappname">guagua.yarn.app.name</h3>
+
+<p>Application name set by users.</p>
+
+<h3 id="guaguayarninputdir">guagua.yarn.input.dir</h3>
+
+<p>Input folder, By using GuaguaYarnClient with ‘-i’ the same with ‘GuaguaMapReduceClient’.</p>
+
+<h3 id="guaguayarnapplibjar">guagua.yarn.app.lib.jar</h3>
+
+<p>Lib jars used in YARN tasks.</p>
+
+<h3 id="guaguayarnappjar">guagua.yarn.app.jar</h3>
+
+<p>App jars used in YARN application master.</p>
+
+<h3 id="guaguayarnmastermemory">guagua.yarn.master.memory</h3>
+
+<p>Guagua AppMaster memory, default is 1024 (MB).</p>
+
+<h3 id="guaguayarnmasterargs">guagua.yarn.master.args</h3>
+
+<p>Guagua AppMaster java command args.</p>
+
+<h3 id="guaguachildmemory">guagua.child.memory</h3>
+
+<p>App container task memory setting, by default is 1024(MB)</p>
+
+<h3 id="guaguayarncontainerargs">guagua.yarn.container.args</h3>
+
+<p>App container java command args.</p>
+
+<h3 id="guaguayarnmaxcontainerattempts">guagua.yarn.max.container.attempts</h3>
+
+<p>Like ‘mapred.mapper.max.attempts’, by default is 4.</p>
+
+<h3 id="guaguayarnmastervcores">guagua.yarn.master.vcores</h3>
+
+<p>Guagua AppMaster vcores.</p>
+
+<h3 id="guaguayarntaskvcores">guagua.yarn.task.vcores</h3>
+
+<p>App container vcores.</p>
+
+<h3 id="guaguayarnstatusrpcport">guagua.yarn.status.rpc.port</h3>
+
+<p>A Netty-RPC server is started in AppMaster to accumulate info like progress. We can set the port of ther server.</p>
+
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div id="side">
+          <h1>Configuration</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    </main>
+
+  <div id="footer">
+    <div class="container">
+      <div class="row">
+        <div id="footer-content">
+          Lovingly crafted at <a href="https://www.paypal.com" alt="PayPal">PayPal</a>, code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0.html" alt="Apache License.">Apache License v2.0</a><br>
+        </div>
+      </div>
+    </div>
+  </div><!--footer-->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47925727-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

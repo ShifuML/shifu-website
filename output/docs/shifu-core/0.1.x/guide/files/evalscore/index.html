@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="description" content="Shifu" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EvalScore</title>
+  <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript">
+</script>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" type="text/css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js" type="text/javascript">
+</script>
+  <script src="/javascripts/main.js" type="text/javascript">
+</script>
+  <link rel="stylesheet" href="/coderay.css" type="text/css">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <link rel="icon" href="/images/owl_head_32.png">
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+  <body>
+	
+	<header id="header" role="banner">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a href="http://paypal.github.io" class="navbar-brand"><img src="/images/OSSLogoPP.png" alt="PayPal open source" /></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="/" id="shifu-logo"><img src="/images/shifu-logo.png" height="44" ></a>
+
+
+
+					<!--<li><a href="/project/about">About</a></li>-->
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="/project/about">About</a></li>
+              <li><a href="/project/how-to-contribute">How to Contribute</a></li>
+              
+            </ul>
+          </li>
+
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Getting Started<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/project/download">Download</a></li>
+							<li><a href="/docs/shifu-core/0.2.x/tutorials/quickstart">Quick Start</a></li>
+
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/docs/shifu-core/0.2.x">Shifu-Core</a></li>
+							<li><a href="/docs/guagua">Guagua</a></li>
+						</ul>
+					</li>
+					
+				</ul>
+			</div>
+		</nav>
+	</header>
+ 
+  
+
+  <div class="container" id="content">
+    <div class="row">
+      <div class="col-md-9">
+        <div id="main">
+          
+<h1 id="evalscore">EvalScore</h1>
+
+<h2 id="schema">Schema</h2>
+
+<p>The schema of the score file:</p>
+
+<pre><code>tag|weight|mean|max|min|median|model0|model1...|meta0|meta1...
+</code></pre>
+
+<p>The number of columns in score file depends on the number of models and the number of meta columns.</p>
+
+<ul>
+  <li>
+<code>tag</code>: the first column, the <strong>true</strong> tag of the record</li>
+  <li>
+<code>weight</code>: the second column, the weight of the record, which is specified as <code>weightColumnName</code> in <code>ModelConfig</code> file</li>
+  <li>scores columns: the <strong>calculated</strong> score of the record
+    <ul>
+      <li>
+<code>mean</code>, <code>max</code>, <code>min</code>, <code>median</code>: the derived scores</li>
+      <li>
+<code>model0</code>, <code>model1</code> …: the raw scores of each model.</li>
+    </ul>
+  </li>
+  <li>meta columns: the meta columns specified in <code>scoreMetaColumnNameFile</code> in <code>ModelConfig</code> file.</li>
+</ul>
+
+<h2 id="input--output">Input / Output</h2>
+
+<h3 id="as-output">As Output</h3>
+
+<p>Score files are generated when executing <code>shifu eval</code>. Scores are calculated against the eval dataset using the trained models.</p>
+
+<h3 id="as-input">As Input</h3>
+
+<p>Score files can be used to </p>
+
+<ul>
+  <li>investigate the individual cases</li>
+  <li>calculate the confusion matrix. Learn more about the <code>eval</code> step in <a href="../../eval">Step 6: Evaluation</a>; learn more about the <code>EvalConfusionMatrix</code> file in <a href="../confusionmatrix">ConfusionMatrix</a>
+</li>
+</ul>
+
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div id="side">
+          <h1>EvalScore</h1><ul class="toc"><li><a href="#schema">Schema</a></li><li><a href="#input--output">Input / Output</a></li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    </main>
+
+  <div id="footer">
+    <div class="container">
+      <div class="row">
+        <div id="footer-content">
+          Lovingly crafted at <a href="https://www.paypal.com" alt="PayPal">PayPal</a>, code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0.html" alt="Apache License.">Apache License v2.0</a><br>
+        </div>
+      </div>
+    </div>
+  </div><!--footer-->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47925727-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

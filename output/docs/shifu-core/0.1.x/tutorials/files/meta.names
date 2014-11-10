@@ -1,0 +1,10 @@
+payment_transid
+cust_id
+transaction_created_date
+txn_hour
+transaction_usd_equiv_amt
+txnMod
+sender_age
+pmt_sub_flow_key
+from_country
+to_country 

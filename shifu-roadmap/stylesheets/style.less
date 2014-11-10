@@ -1,0 +1,261 @@
+html {
+  background:
+radial-gradient(black 15%, transparent 16%) 0 0,
+radial-gradient(black 15%, transparent 16%) 8px 8px,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+background-color:#282828;
+background-size:16px 16px;
+}
+
+body {  
+  height: 100%;
+  background-color: #EEE;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.navbar {
+  font-size: 18px;
+  border-radius: 0;
+  border: 0;
+
+  .navbar-brand {
+    padding: 5px 10px 0 10px ;
+  }
+ 
+
+  #pplogo {
+    margin-top: 16px;
+  } 
+}
+
+#content {
+  background-color: #FEFEFE;
+  border: 1px solid #104E8B;
+  font-size: 18px;
+  padding: 20px 60px;
+
+  line-height: 28px;
+
+  h1 {
+    font-size: 40px;
+    font-weight: normal;
+
+    line-height: 54px;
+
+    letter-spacing: -1px;
+
+    border-bottom: 3px solid #888;
+  }
+
+  h2 {
+  font-size: 28px;
+  line-height: 40px;
+  margin: 20px 0;
+  color: #00688B;
+  border-bottom: 1px solid #DDD;
+  } 
+
+  h3 {
+    margin-top: 30px;
+    color: #CD5B45;
+    font-size: 22px;
+  }
+
+  h4 {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #8B4513;
+
+  }
+}
+
+
+#footer {
+margin-top: 20px;
+  height: 100px;
+  background-color: #333;
+  
+  color: #DDD;
+  font-size: 16px;
+  background:
+radial-gradient(black 15%, transparent 16%) 0 0,
+radial-gradient(black 15%, transparent 16%) 8px 8px,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+background-color:#282828;
+background-size:16px 16px;
+}
+
+#footer-content {
+  margin: 24px;
+}
+
+@statusColorDeprecated: purple;
+@statusColorProposed: brown;
+@statusColorDefined: #FF4500;
+@statusColorInProgress: #EEC900;
+@statusColorExperimental: #9ACD32;
+@statusColorUnstable: #008B00;
+@statusColorStable: steelblue;
+
+
+
+#status-table {
+    margin: 50px;
+    overflow: auto;
+    word-wrap: normal;
+    width: 90%
+}
+
+.feature-prompt {
+    color: #888;
+    font-weight: normal;
+}
+
+.feature-group {
+    
+    margin: 10px;
+    padding: 10px;
+
+    border: 1px solid #CCC;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-width: 5px;
+    
+    .expand-btn {
+        width: 30px;
+        height: 30px;
+        padding: 6px;
+    }
+
+    .expand-all-btn {
+  
+        line-height: 18px;
+       
+      
+    }
+
+    .feature-group-name {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .row {
+      margin: 10px 0;
+    }
+}
+
+.feature-path {
+    font-size: 14px;
+    padding-left: 10px;
+    color: #666;
+    background-color: #F8F8F8;
+    font-weight: bold;
+  }
+
+.feature {
+  border: 1px solid #CCC;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-width: 5px;
+  margin: 10px;
+  padding: 10px;
+
+  .feature-name {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: bold;
+  }
+  
+  .row {
+      margin: 10px 0;
+    }
+
+  .feature-description {
+    border: 1px solid #DDD;
+    background-color: #F1F1F1;
+    padding: 10px;
+  }
+}
+
+.feature-deprecated {
+    border-color: @statusColorDeprecated;
+}
+
+.feature-proposed {
+    border-color: @statusColorProposed;
+}
+
+.feature-defined {
+    border-color: @statusColorDefined;
+}
+
+.feature-inprogress {
+    border-color: @statusColorInProgress;
+}
+
+.feature-experimental {
+    border-color: @statusColorExperimental;
+}
+
+.feature-unstable {
+    border-color: @statusColorUnstable;
+}
+
+.feature-stable {
+    border-color: @statusColorStable;
+}
+
+.status-label {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.label-deprecated {
+    background-color: @statusColorDeprecated;
+}
+
+.label-proposed {
+    background-color: @statusColorProposed;
+}
+
+.label-defined {
+    background-color: @statusColorDefined;
+}
+
+.label-inprogress {
+    background-color: @statusColorInProgress;
+}
+.label-experimental {
+    background-color: @statusColorExperimental;
+}
+.label-unstable {
+    background-color: @statusColorUnstable;
+}
+.label-stable {
+    background-color: @statusColorStable;
+}
+
+
+
+li {
+  list-style: none;
+}
+
+.control-group {
+  border: 1px solid #CCC;
+  border-radius: 5px;
+  background-color: #F9F9F9;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.panel {
+  .panel-heading {
+    font-size: 16px;
+    text-align: center;
+    padding: 0;
+  }
+}

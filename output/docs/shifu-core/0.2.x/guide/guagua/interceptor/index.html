@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="description" content="Shifu" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Intercepters</title>
+  <script src="http://code.jquery.com/jquery-latest.js" type="text/javascript">
+</script>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" type="text/css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js" type="text/javascript">
+</script>
+  <script src="/javascripts/main.js" type="text/javascript">
+</script>
+  <link rel="stylesheet" href="/coderay.css" type="text/css">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <link rel="icon" href="/images/owl_head_32.png">
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+  <body>
+	
+	<header id="header" role="banner">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a href="http://paypal.github.io" class="navbar-brand"><img src="/images/OSSLogoPP.png" alt="PayPal open source" /></a>
+			</div>
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="/" id="shifu-logo"><img src="/images/shifu-logo.png" height="44" ></a>
+
+
+
+					<!--<li><a href="/project/about">About</a></li>-->
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Project<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="/project/about">About</a></li>
+              <li><a href="/project/how-to-contribute">How to Contribute</a></li>
+              
+            </ul>
+          </li>
+
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Getting Started<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/project/download">Download</a></li>
+							<li><a href="/docs/shifu-core/0.2.x/tutorials/quickstart">Quick Start</a></li>
+
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/docs/shifu-core/0.2.x">Shifu-Core</a></li>
+							<li><a href="/docs/guagua">Guagua</a></li>
+						</ul>
+					</li>
+					
+				</ul>
+			</div>
+		</nav>
+	</header>
+ 
+  
+
+  <div class="container" id="content">
+    <div class="row">
+      <div class="col-md-9">
+        <div id="main">
+          
+<p><a href="http://shifu.ml/docs/stable/guide/guagua/"><img src="../images/guagua_duck_50.png" alt="Guagua" align="right"></a></p>
+
+<p><strong>Guagua</strong> is designed as a kenel-plugin mode like Eclipse, Maven. A kenel is defined to run master workers iterations, while all other features are implemented as interceptors. Se system interceptors are provided by default like coordinator and timer, and user interceptors are also supported by setting just a parameter. All customers are considered as first-level citizens in Guagua, any internal or user-related feature can be changed by implementing their own iterceptors.</p>
+
+<p><img src="../images/intercepters.png" alt="guagua-intercepters"></p>
+
+<p>A user interceptor example which is used to save output at the end of one application:</p>
+
+<div class="CodeRay"><div class="code"><pre><code class="language-java"><span class="directive">public</span> <span class="type">class</span> <span class="class">SumOutput</span> <span class="directive">extends</span>
+                BasicMasterInterceptor&lt;GuaguaWritableAdapter&lt;LongWritable&gt;, GuaguaWritableAdapter&lt;LongWritable&gt;&gt; {
+
+        <span class="directive">private</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">Logger</span> LOG = LoggerFactory.getLogger(SumOutput.class);
+
+        <span class="annotation">@Override</span>
+        <span class="directive">public</span> <span class="type">void</span> postApplication(
+                        <span class="directive">final</span> MasterContext&lt;GuaguaWritableAdapter&lt;LongWritable&gt;, GuaguaWritableAdapter&lt;LongWritable&gt;&gt; context) {
+                LOG.info(<span class="string"><span class="delimiter">"</span><span class="content">SumOutput starts to write final sum value to file.</span><span class="delimiter">"</span></span>);
+                Path out = <span class="keyword">new</span> Path(context.getProps().getProperty(<span class="string"><span class="delimiter">"</span><span class="content">guagua.sum.output</span><span class="delimiter">"</span></span>));
+                LOG.info(<span class="string"><span class="delimiter">"</span><span class="content">Writing results to {}</span><span class="delimiter">"</span></span>, out.toString());
+                <span class="predefined-type">PrintWriter</span> pw = <span class="predefined-constant">null</span>;
+                <span class="keyword">try</span> {
+                        FSDataOutputStream fos = FileSystem.get(<span class="keyword">new</span> <span class="predefined-type">Configuration</span>()).create(out);
+                        pw = <span class="keyword">new</span> <span class="predefined-type">PrintWriter</span>(fos);
+                        pw.println(context.getMasterResult().getWritable().get());
+                        pw.flush();
+                } <span class="keyword">catch</span> (<span class="exception">IOException</span> e) {
+                        LOG.error(<span class="string"><span class="delimiter">"</span><span class="content">Error in writing output.</span><span class="delimiter">"</span></span>, e);
+                } <span class="keyword">finally</span> {
+                        IOUtils.closeStream(pw);
+                }
+        }
+}</code></pre></div></div>
+
+<p>Configure it in command bash:</p>
+
+<div class="CodeRay"><div class="code"><pre><code class="language-java">-Dguagua.master.intercepters=ml.shifu.guagua.mapreduce.example.sum.SumOutput -Dguagua.sum.output=sum-output</code></pre></div></div>
+
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div id="side">
+          <h1>Intercepters</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    </main>
+
+  <div id="footer">
+    <div class="container">
+      <div class="row">
+        <div id="footer-content">
+          Lovingly crafted at <a href="https://www.paypal.com" alt="PayPal">PayPal</a>, code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0.html" alt="Apache License.">Apache License v2.0</a><br>
+        </div>
+      </div>
+    </div>
+  </div><!--footer-->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47925727-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

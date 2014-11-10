@@ -1,0 +1,403 @@
+{
+    "meta": {
+        "statusIndex": [
+            {
+                "index": 0,
+                "status": "Deprecated",
+                "description": "The feature is depreacated."
+            },
+            {
+                "index": 1,
+                "status": "Proposed",
+                "description": "The feature is proposed but not clearly defined. Might be removed."
+            },
+            {
+                "index": 2,
+                "status": "Defined",
+                "description": "The feature is clearly defined. Wait to be built."
+            },
+            {
+                "index": 3,
+                "status": "InProgress",
+                "description": "The feature is currently under construction."
+            },
+            {
+                "index": 4,
+                "status": "Experimental",
+                "description": "The prototype of the feature is finished. Functionality is integrated but might not be full documented. Users are encouged to try the feature and provide feedback."
+            },
+            {
+                "index": 5,
+                "status": "Unstable",
+                "description": "The feature is officially released but not under extensive tests. Further changes or removal is possible."
+            },
+            {
+                "index": 6,
+                "status": "Stable",
+                "description": "The feature is fully tested and not likely to change."
+            }
+        ]
+    },
+    "Shifu": {
+        "type": "FeatureGroup",
+        "name": "Shifu",
+        "features": [
+            {
+                "type": "FeatureGroup",
+                "name": "VariableStatistics",
+                "features": [
+                    {
+                        "type": "FeatureGroup",
+                        "name": "BasicStatistics",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "name": "max",
+                                "status": "Stable",
+                                "description": "Calculate the max value."
+                            },
+                            {
+                                "type": "Feature",
+                                "name": "min",
+                                "status": "Stable",
+                                "description": "Calculate the min value."
+                            },
+                            {
+                                "type": "Feature",
+                                "name": "mean",
+                                "status": "Stable",
+                                "description": "mean"
+                            },
+                            {
+                                "type": "Feature",
+                                "name": "stdDev",
+                                "status": "Stable",
+                                "description": "stdDev"
+                            },
+                            {
+                                "type": "Feature",
+                                "name": "median",
+                                "status": "Defined",
+                                "description": "median"
+                            },
+                            {
+                                "type": "Feature",
+                                "name": "totalCount",
+                                "status": "Defined",
+                                "description": "the number of total instances(rows) in the input(might be sampled from original dataset)"
+                            },
+                            {
+                                "type": "Feature",
+                                "name": "missingCount",
+                                "status": "Defined",
+                                "description": "the number of missing values() in the input"
+                            },
+                            {
+                                "type": "Feature",
+                                "name": "missingPercent",
+                                "status": "Defined",
+                                "description": "missingCount / totalCount, in the form of 'xx.xx%'."
+                            }
+                        ]
+                    },
+                    {
+                        "type": "FeatureGroup",
+                        "name": "DerivedStatistics",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "name": "ks",
+                                "status": "Stable",
+                                "description": "Calculate the max value."
+                            },
+                            {
+                                "type": "Feature",
+                                "name": "iv",
+                                "status": "Stable",
+                                "description": "Calculate the min value."
+                            }
+                        ]
+                    },
+                    {
+                        "type": "FeatureGroup",
+                        "name": "BinningOptions",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "name": "maxNumBin",
+                                "status": "Stable",
+                                "description": ""
+                            },
+                            {
+                                "type": "Feature",
+                                "name": "sampleRate",
+                                "status": "Stable",
+                                "description": ""
+                            }
+                        ]
+                    },
+                    {
+                        "type": "FeatureGroup",
+                        "name": "BinningResult",
+                        "description": "binning results in ColumnConfig.columnBinning",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "name": "binLength",
+                                "status": "Stable",
+                                "description": "binLength"
+                            },
+                            {
+                                "type": "Feature",
+                                "name": "binBoundary",
+                                "status": "Stable",
+                                "description": "binBoundary"
+                            },
+                            {
+                                "type": "Feature",
+                                "name": "binCategory",
+                                "status": "Stable",
+                                "description": "binCategory"
+                            },
+                            {
+                                "type": "Feature",
+                                "name": "binCountNeg",
+                                "status": "Stable",
+                                "description": "binCountNeg"
+                            },
+                            {
+                                "type": "Feature",
+                                "name": "binCountPos",
+                                "status": "Stable",
+                                "description": "binCountPos"
+                            },
+                            {
+                                "type": "Feature",
+                                "name": "binPosRate",
+                                "status": "Stable",
+                                "description": "binPosRate"
+                            },
+                            {
+                                "type": "Feature",
+                                "name": "binWeightedNeg",
+                                "status": "Defined",
+                                "description": "binWeightedNeg"
+                            },
+                            {
+                                "type": "Feature",
+                                "name": "binWeightedPos",
+                                "status": "Defined",
+                                "description": "binWeightedPos"
+                            }
+
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "FeatureGroup",
+                "name": "VariableSelection",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "name": "Manual",
+                        "status": "Stable",
+                        "description": "Set the variables to be included in ForceSelect, and the ones to be excluded in ForceRemove"
+                    },
+                    {
+                        "type": "FeatureGroup",
+                        "name": "Filter",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "status": "Stable",
+                                "name": "Filter By KS",
+                                "description": ""
+                            },
+                            {
+                                "type": "Feature",
+                                "status": "Stable",
+                                "name": "Filter By IV",
+                                "description": ""
+                            }
+                        ]
+                    },
+                    {
+                        "type": "Feature",
+                        "name": "Wrapper",
+                        "status": "Deprecated",
+                        "description": "In re-design"
+                    }
+                ]
+            },
+            {
+                "type": "FeatureGroup",
+                "name": "DataNormalization",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "name": "z-Score",
+                        "status": "Stable",
+                        "description": ""
+                    }
+                ]
+            },
+            {
+                "type": "FeatureGroup",
+                "name": "Training",
+                "features": [
+                    {
+                        "type": "FeatureGroup",
+                        "name": "ML Library Porting - Encog",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "name": "Neural Network",
+                                "status": "Stable",
+                                "description": ""
+                            },
+                            {
+                                "type": "Feature",
+                                "name": "SVM",
+                                "status": "Unstable",
+                                "description": ""
+                            },
+                            {
+                                "type": "Feature",
+                                "name": "Logistic Regression",
+                                "status": "Unstable",
+                                "description": ""
+                            }
+                        ]
+                    },
+                    {
+                        "type": "FeatureGroup",
+                        "name": "Native ML Library",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "name": "Decision Tree",
+                                "status": "Experimental",
+                                "description": ""
+                            },
+                            {
+                                "type": "Feature",
+                                "name": "Random Forest",
+                                "status": "Proposed",
+                                "description": ""
+                            }
+                        ]
+                    },
+                    {
+                        "type": "FeatureGroup",
+                        "name": "Training Options",
+                        "features": [
+                            {
+                                "type": "Feature",
+                                "name": "Cross Validation",
+                                "status": "Proposed",
+                                "description": ""
+                            },
+                            {
+                                "type": "FeatureGroup",
+                                "name": "Stopping Criteria",
+                                "features": [
+                                    {
+                                        "type": "Feature",
+                                        "name": "By Num of Epochs",
+                                        "status": "Stable",
+                                        "description": ""
+                                    },
+                                    {
+                                        "type": "Feature",
+                                        "name": "When Test Error Goes Up",
+                                        "status": "Proposed",
+                                        "description": ""
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                   
+                ]
+            },
+            {
+                "type": "FeatureGroup",
+                "name": "Post-Training",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "name": "Score Training DataSet",
+                        "status": "Stable",
+                        "description": ""
+                    },
+                    {
+                        "type": "Feature",
+                        "name": "binAvgScore",
+                        "status": "Stable",
+                        "description": ""
+                    },
+                    {
+                        "type": "Feature",
+                        "name": "Sensitivity Analysis",
+                        "status": "Proposed",
+                        "description": "" 
+                    }                   
+                ]
+            },
+            {
+                "type": "FeatureGroup",
+                "name": "Evaluation",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "name": "Calculate Score",
+                        "status": "Stable",
+                        "description": ""
+                    },
+                    {
+                        "type": "Feature",
+                        "name": "Calculate ConfusionMatrix",
+                        "status": "Stable",
+                        "description": ""
+                    },
+                    {
+                        "type": "Feature",
+                        "name": "Calculate PerformanceMatrix",
+                        "status": "Stable",
+                        "description": ""
+                    },
+                    {
+                        "type": "Feature",
+                        "name": "Draw Performance Curves",
+                        "status": "Stable",
+                        "description": ""
+                    }
+                ]
+            },
+            {
+                "type": "FeatureGroup",
+                "name": "Integration",
+                "features": [
+                    {
+                        "type": "Feature",
+                        "name": "By Java API",
+                        "status": "Stable",
+                        "description": "Documented here: http://10.9.187.2/docs/current/guide/integration/"
+                    },
+                    {
+                        "type": "Feature",
+                        "name": "By RESTful API",
+                        "status": "Proposed",
+                        "description": "Create a Netty server with the trained models and config files; send out score upon requests."
+                    }
+                ]
+            }
+        ]          
+    },
+    "ShifuDashboard": {
+        "type": "FeatureGroup",
+        "name": "ShifuDashboard",
+        "features": []
+    }        
+}
