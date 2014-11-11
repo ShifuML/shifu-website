@@ -113,6 +113,13 @@
 &lt;/dependencies&gt;
 </code></pre>
 
+<p>Make sure <code>shifu-core</code> is already added to your maven local repository(~/.m2e folder)</p>
+
+<pre><code>$ git clone https://github.com/ShifuML/shifu-core.git
+$ cd shifu-core
+$ mvn install
+</code></pre>
+
 <h2 id="add-java-class">Add Java class</h2>
 
 <p>Create a Java class, use the package name <code>ml.shifu.plugin.dummy</code>. Make sure the Java class implements the interface <code>ml.shifu.core.di.spi.UnivariateStatsCalculator</code></p>
@@ -130,10 +137,10 @@
 <span class="directive">public</span> <span class="type">class</span> <span class="class">DummyUnivariateStatsCalculator</span> <span class="directive">implements</span> UnivariateStatsCalculator {
 
     <span class="directive">public</span> UnivariateStats calculate(DataField field, <span class="predefined-type">List</span>&lt;? <span class="directive">extends</span> <span class="predefined-type">Object</span>&gt; values, Params params) {
-        
+
         <span class="comment">// Create a new UnivariateStats Object</span>
         UnivariateStats univariateStats = <span class="keyword">new</span> UnivariateStats();
-        
+
         <span class="comment">// Set fieldName</span>
         univariateStats.setField(field.getName());
 
@@ -162,7 +169,6 @@
 
 <pre><code>$ cp target/shifu-plugin-dummy-1.0-SNAPSHOT.jar $SHIFU_HOME/plugin
 </code></pre>
-
 
         </div>
       </div>

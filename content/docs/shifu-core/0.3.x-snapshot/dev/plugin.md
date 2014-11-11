@@ -20,7 +20,7 @@ The created project should have a ``pom.xml`` containing the following info:
     <artifactId>shifu-plugin-dummy</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-## Add dependencies 
+## Add dependencies
 
 Add ``shifu-core`` as dependency, plus other dependencies required by your code.
 
@@ -31,6 +31,12 @@ Add ``shifu-core`` as dependency, plus other dependencies required by your code.
             <version>0.3.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
+Make sure ``shifu-core`` is already added to your maven local repository(~/.m2e folder)
+
+    $ git clone https://github.com/ShifuML/shifu-core.git
+    $ cd shifu-core
+    $ mvn install
 
 ## Add Java class
 
@@ -50,10 +56,10 @@ Create a Java class, use the package name ``ml.shifu.plugin.dummy``. Make sure t
     public class DummyUnivariateStatsCalculator implements UnivariateStatsCalculator {
 
         public UnivariateStats calculate(DataField field, List<? extends Object> values, Params params) {
-            
+
             // Create a new UnivariateStats Object
             UnivariateStats univariateStats = new UnivariateStats();
-            
+
             // Set fieldName
             univariateStats.setField(field.getName());
 
@@ -70,7 +76,7 @@ Create a Java class, use the package name ``ml.shifu.plugin.dummy``. Make sure t
             return univariateStats;
         }
     }
-    
+
 ## Compile
 
     $ mvn package
@@ -80,5 +86,3 @@ Create a Java class, use the package name ``ml.shifu.plugin.dummy``. Make sure t
 Plug the jar file in ``$SHIFU_HOME/plugin``
 
     $ cp target/shifu-plugin-dummy-1.0-SNAPSHOT.jar $SHIFU_HOME/plugin
-
-
