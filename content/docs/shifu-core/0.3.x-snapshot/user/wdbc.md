@@ -15,14 +15,14 @@ Install Shifu
 **At this time there is no download link for 0.3.0-SNAPSHOT, please follow the steps to clone from Github and build it locally**
 
     $ git clone https://github.com/ShifuML/shifu-core.git
-    $ cd shifu
+    $ cd shifu-core
     $ mvn install
 
 This should install all the required packages into your local Maven repository.
 
-Find the package in ``shifu/shifu-core/target`` folder(optionally you can move it to a desired location). Uncompress the package
+Find the package in ``shifu-core/target`` folder(optionally you can move it to a desired location). Uncompress the package
 
-    $ tar xvzf shifu-core-0.3.0-SNAPSHOT-cdh-20.tar.gz
+    $ tar xvzf shifu-core-0.3.0-SNAPSHOT-release.tar.gz
 
 Setup ``$SHIFU_HOME`` in your ``~/.bashrc`` or ``~/.bash_profile``
 
