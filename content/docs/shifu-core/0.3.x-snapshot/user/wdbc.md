@@ -87,11 +87,11 @@ Checkout the result in ``generated`` folder
 Step 6: Train
 -------------
 
-In this tutorial, we are using Encog for training, install Encog plugin by copying ``shifu-plugin-encog`` to ``$SHIFU_HOME/plugin`` folder:
+In this tutorial, we are using Encog for training, install Encog plugin by copying ``shifu-plugin-encog`` to ``$SHIFU_HOME/plugin`` folder(make sure you are using the jar with dependencies: ``shifu-plugin-encog-<version>-jar-with-dependencies.jar``):
 
     $ cd shifu-plugin-encog
     $ mvn package
-    $ cp target/shifu-plugin-encog-<version>.jar $SHIFU_HOME/plugin
+    $ cp target/shifu-plugin-encog-<version>-jar-with-dependencies.jar $SHIFU_HOME/plugin
 
 Then execute the request
 
