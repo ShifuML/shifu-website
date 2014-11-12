@@ -163,11 +163,11 @@ $ which shifu
 
 <h2 id="step-6-train">Step 6: Train</h2>
 
-<p>In this tutorial, we are using Encog for training, install Encog plugin by copying <code>shifu-plugin-encog</code> to <code>$SHIFU_HOME/plugin</code> folder:</p>
+<p>In this tutorial, we are using Encog for training, install Encog plugin by copying <code>shifu-plugin-encog</code> to <code>$SHIFU_HOME/plugin</code> folder(make sure you are using the jar with dependencies: <code>shifu-plugin-encog-&lt;version&gt;-jar-with-dependencies.jar</code>):</p>
 
 <pre><code>$ cd shifu-plugin-encog
 $ mvn package
-$ cp target/shifu-plugin-encog-&lt;version&gt;.jar $SHIFU_HOME/plugin
+$ cp target/shifu-plugin-encog-&lt;version&gt;-jar-with-dependencies.jar $SHIFU_HOME/plugin
 </code></pre>
 
 <p>Then execute the request</p>
