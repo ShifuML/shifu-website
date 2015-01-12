@@ -5,6 +5,38 @@ title: Release Notes
 Release Notes
 =========
 
+Version 0.2.4
+-------------
+
+* https://github.com/ShifuML/shifu/issues/20: Work flow change.
+	* Old: new -> init -> stats -> varselect -> normalize -> train -> eval
+    * New: new -> init -> stats -> normalize -> varselect -> train -> eval
+    * If do variable selection again after a model, current work flow no need do normalize step, after variable selection then do training step.
+* https://github.com/ShifuML/shifu/issues/49: Add distributed sensitivity analysis variable selection.
+    * 'varSelect.wrapperEnabled=true' and 'wrapperBy=SE' in ModelConfig.json#varSelect part to enable sensitivity variable selection.
+    * 'wrapperRatio' in ModelConfig.json#varSelect part is a percent to set how many variables will be removed.
+    * To continue variable selection by sensitivity method, run 'shifu varselect' again. 
+    * With 20 million of records and 1600 variables, 70 minutes (45 minutes for 200 epoch training and 25 minutes for sensitivity variable selection).
+* https://github.com/ShifuML/shifu/issues/38: Improve scalability in stats step.
+    * 'binningAlgorithm=SPDT' (default value) in ModelConfig.json#stats is to do variable statistics to improve scalability for big data.
+        * Using SPDT, with 20 million of records and 1600 variables, 50 minutes to finish variable selection.
+    *'binningAlgorithm=MunroPat' in ModelConfig.json#stats is another approach to do variable statistics to improve scalability for big data.
+* https://github.com/ShifuML/shifu/issues/58: Improve scalability in eval step for HDFS mode.
+    * With 20 million of records and 1600 variables, 20 minutes to finish eval step with only 1GB driver memory.
+* https://github.com/ShifuML/shifu/issues/61: Embeded zookeeper server support.
+    * No need to set zookeeper servers so far since embeded zookeeper server will help on training models.
+    * Big data training, independent zookeeper cluster is strongly recommended.
+    * Upgrade Guagua to 0.5.0 to get support from Guagua for this feature.
+* Add PMML standard model converter.
+    * To convert .nn files into pmml, run "shifu export -t pmml" or just "shifu export" (The pmml is default)
+        * All generated pmml files will be under <Model-Directory>/pmmls/
+* Bug fix:
+    * https://github.com/ShifuML/shifu/issues/45
+    * https://github.com/ShifuML/shifu/issues/51
+    * https://github.com/ShifuML/shifu/issues/39
+    * https://github.com/ShifuML/shifu/issues/40
+    * https://github.com/ShifuML/shifu/issues/45
+
 Version 0.2.3
 -------------
 
