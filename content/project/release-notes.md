@@ -5,6 +5,89 @@ title: Release Notes
 Release Notes
 =========
 
+Version 0.2.7
+-------------
+
+* Sampling Function Improvement
+	* https://github.com/ShifuML/shifu/issues/93
+	* https://github.com/ShifuML/shifu/issues/140
+* Binning Improvement
+	* https://github.com/ShifuML/shifu/issues/148
+	* https://github.com/ShifuML/shifu/issues/157
+* Stats Step Improvement
+	* https://github.com/ShifuML/shifu/issues/155
+	* https://github.com/ShifuML/shifu/issues/137
+	* https://github.com/ShifuML/shifu/issues/75
+* Norm Step Improvement
+	* https://github.com/ShifuML/shifu/issues/103
+	* https://github.com/ShifuML/shifu/issues/120
+	* https://github.com/ShifuML/shifu/issues/131
+	* https://github.com/ShifuML/shifu/issues/142
+* Train Step Improvement
+	* https://github.com/ShifuML/shifu/issues/66
+	* https://github.com/ShifuML/shifu/issues/159
+	* https://github.com/ShifuML/shifu/issues/166
+	* https://github.com/ShifuML/shifu/issues/106
+* Variable Selection Step Improvement
+	* https://github.com/ShifuML/shifu/issues/57
+	* https://github.com/ShifuML/shifu/issues/102
+* Distributed LR Algorithm Improvement (Experimental)
+	* https://github.com/ShifuML/shifu/issues/56
+* Multiple classes NN Algorithm Improvement (Experimental)
+	* https://github.com/ShifuML/shifu/issues/149
+* Pig on Tez Support
+
+Version 0.2.6
+-------------
+
+* https://github.com/ShifuML/shifu/issues/133: Add skewness and kurtosis stats
+* https://github.com/ShifuML/shifu/issues/134: Add CSV ColumnConfig Format for ColumnConfig.json
+* https://github.com/ShifuML/shifu/issues/117: Add AUC Computation on Eval Step
+* https://github.com/ShifuML/shifu/issues/118: Add Shortcut Commands: 'norm', 'varsel'
+* https://github.com/ShifuML/shifu/issues/127: Support HDP 2.6.0.2.2.4.2-2
+* https://github.com/ShifuML/shifu/issues/83: Add Distinct Count Statistics
+* https://github.com/ShifuML/shifu/issues/82: Auto-detect Variable Type
+
+Version 0.2.5
+-------------
+
+* https://github.com/ShifuML/shifu/issues/97: Upgrade Guagua to latest version 0.7.0.
+	* New features included in Guagua 0.6.0 to continuous improve performance of Shifu:
+		* 'out-of-core' list to support worker to scale out from memory to disk.
+		* Netty-based coordinators to decrease dependency on zookeeper and improve iteration communication performance.
+		* Embedded zookeeper server supported not only in client as a thread, but also in master node as a process.
+	* One improtant feature included in Guagua 0.7.0 to accelerate training in Shifu:
+		* Partial-compete feature means in each iteration master only wait for partial workers complete and to 
+		   ignore straggler worker result. 
+* https://github.com/ShifuML/shifu/issues/105: SPDT stats performance improvement.
+	* 'binningAlgorithm=SPDTI' (default value) in ModelConfig.json#stats is to improve scalability for big data. 
+		This solution is based on SPDT binning algorithm and called SPDT-Improvement(SPDTI).
+	* Using SPDTI, with 20 million of records and 1600 variables, 20 minutes to finish stats. With 100 million of 
+		records and 1600 variables, 30 minutes to finish stats.
+* https://github.com/ShifuML/shifu/issues/59: Shifu eval confusion and performance improvement.
+	* With 20 million of records and 1600 variables, 13 minutes to finish eval step compared with 20 minutes in 
+		Shifu 0.2.4.
+* https://github.com/ShifuML/shifu/issues/64: Set the Hadoop parallel number automatically.
+	* With input data set increase, user no need to set 'hadoopParallelNumber' in shifuconfig.
+	* This value is tuned automatically new Shifu.
+* Binning improvement
+	* https://github.com/ShifuML/shifu/issues/77: Add missing value count as a bin.
+	* https://github.com/ShifuML/shifu/issues/79: Add weights to binning.
+	* https://github.com/ShifuML/shifu/issues/80: Weights binning KS/IV/WoE computing.
+* https://github.com/ShifuML/shifu/issues/72: Support WoE transformation when doing normalization
+* Training step improvement
+	* https://github.com/ShifuML/shifu/issues/95: NN doesn't support 0 hidden layer.
+	* https://github.com/ShifuML/shifu/issues/76: Add convergence parameter to Shifu d-train.
+	* https://github.com/ShifuML/shifu/issues/84: Add local disk support to scale in-memory data set.
+	* https://github.com/ShifuML/shifu/issues/60: Continuous model training.
+	* https://github.com/ShifuML/shifu/issues/85: Add 'epochsPerIteration' parameter in NNWorker.
+* Bug fix:
+	* https://github.com/ShifuML/shifu/issues/98
+	* https://github.com/ShifuML/shifu/issues/92
+	* https://github.com/ShifuML/shifu/issues/70
+	* https://github.com/ShifuML/shifu/issues/69
+	* https://github.com/ShifuML/shifu/issues/67
+
 Version 0.2.4
 -------------
 

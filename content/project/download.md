@@ -12,9 +12,9 @@ Download
 	<div class="col-sm-9 col-md-9 col-lg-9 text-center-left theme-shifu">
 		<p id="shifu-download" class="theme-shifu">Shifu Version 0.2.3</p>
 		<p id="shifu-download-details">
-            <a href="/release/shifu-0.2.3-cdh-20.tar.gz">tar.gz(Hadoop-0.20.x)</a> | 
-            <a href="/release/shifu-0.2.3-hdp-yarn.tar.gz">tar.gz(Hadoop-2.x)</a> |
-            <a href="/project/release-notes/#version-023">Release Notes</a></p>
+            <a href="/release/shifu-0.2.7-cdh-20.tar.gz">tar.gz(Hadoop-0.20.x)</a> | 
+            <a href="/release/shifu-0.2.7-hdp-yarn.tar.gz">tar.gz(Hadoop-2.x)</a> |
+            <a href="/project/release-notes/#version-027">Release Notes</a></p>
 	</div>
 </div>
 
